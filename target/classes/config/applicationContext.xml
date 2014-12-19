@@ -10,11 +10,25 @@
 		<context:exclude-filter type="annotation" expression="com.hb.redis.work.util"/> -->
 	</context:component-scan>
 	
+	<!-- 
+		配置一个基于注解的定制的WebBindingInitializer，解决日期转换问题，方法级别的处理器映射，
+		有人说该bean要放在context:component-scan前面，要不然不起作用，但我试的放后面也可以啊。
+	-->
+	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+	    <property name="cacheSeconds" value="0" />
+	</bean>
+	
 	 <!-- 扫描controller（controller层注入） -->
    <context:component-scan base-package="cn.springmvc.controller"/>
+   
+   	<!-- 开启AOP监听 只对当前配置文件有效 -->
+	<aop:aspectj-autoproxy expose-proxy="true"/>
 	
-	<import resource="classpath:config/spring-redis.xml"/>
+	<import resource="classpath:/config/spring-redis.xml"/>
 	
-	<import resource="classpath:config/spring-mybatis.xml"/>
+	<import resource="classpath:/config/spring-mybatis.xml"/>
+	
+	<import resource="classpath:/config/app-aop.xml"/>
+	
 	
 </beans>

@@ -8,7 +8,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.hb.redis.model.User;
-import com.hb.redis.service.UserService;
+import com.hb.redis.service.UserServiceForRedis;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -18,7 +18,7 @@ import com.hb.redis.service.UserService;
 public class UserTest {
 	
 	@Autowired
-	private  UserService userService ;
+	private  UserServiceForRedis userService ;
 	
 	@Test
 	public void userServerTest() {

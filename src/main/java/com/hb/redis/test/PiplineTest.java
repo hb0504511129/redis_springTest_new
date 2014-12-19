@@ -1,4 +1,4 @@
-package com.hb.redis.util;
+package com.hb.redis.test;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

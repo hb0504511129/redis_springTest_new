@@ -6,7 +6,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.hb.redis.model.User;
-import com.hb.redis.service.UserService;
+import com.hb.redis.service.UserServiceForRedis;
 
 public class Test {
 
@@ -17,7 +17,7 @@ public class Test {
 	     
 		ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
 				"classpath*:/config/applicationContext.xml");
-		UserService userService = (UserService) applicationContext
+		UserServiceForRedis userService = (UserServiceForRedis) applicationContext
 				.getBean("userService");
 
 		User user1 = new User("user1ID", "User 1");

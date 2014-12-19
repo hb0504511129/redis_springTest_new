@@ -1,4 +1,4 @@
-package com.hb.redis.util;
+package com.hb.redis.test;
 
 import java.util.List;
 import java.util.Set;

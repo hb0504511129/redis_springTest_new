@@ -94,9 +94,9 @@
 			<version>${org.springframework.version}</version>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<!-- config spring jar end -->
-	
+
 		<!-- config redis data and client jar -->
 		<dependency>
 			<groupId>org.springframework.integration</groupId>
@@ -118,7 +118,7 @@
 			<version>2.6.1</version>
 		</dependency>
 		<!-- config redis data and client jar end -->
-		
+
 		<!-- mybatis核心包 -->
 		<dependency>
 			<groupId>org.mybatis</groupId>
@@ -151,7 +151,7 @@
 			<version>1.0.9</version>
 		</dependency>
 
-	    <!-- json数据 -->
+		<!-- json数据 -->
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>
 			<artifactId>jackson-mapper-asl</artifactId>
@@ -212,6 +212,20 @@
 			<scope>runtime</scope>
 		</dependency>
 		<!-- log end -->
+
+		<!-- 拼音工具包 -->
+		<dependency>
+			<groupId>com.belerweb</groupId>
+			<artifactId>pinyin4j</artifactId>
+			<version>2.5.0</version>
+		</dependency>
+
+		<!-- 实体bean 持久化工具类 -->
+		<dependency>
+			<groupId>javax.persistence</groupId>
+			<artifactId>persistence-api</artifactId>
+			<version>1.0.2</version>
+		</dependency>
 
 	</dependencies>
 

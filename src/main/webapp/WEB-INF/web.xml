@@ -48,6 +48,11 @@
     <servlet-name>spring</servlet-name>
     <url-pattern>*.do</url-pattern>
   </servlet-mapping>
+  
+   <session-config>
+    <session-timeout>60</session-timeout><!-- 会话超时时间  -->
+  </session-config>
+  
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>

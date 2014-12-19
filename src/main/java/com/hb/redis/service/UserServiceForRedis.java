@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.hb.redis.model.User;
 
 @Service("userService") 
-public class UserService {
+public class UserServiceForRedis {
 
 	@Autowired 
 	@Qualifier("redisTemplate") 
