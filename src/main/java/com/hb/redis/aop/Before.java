@@ -16,5 +16,4 @@ public class Before implements MethodBeforeAdvice {
 		System.out.println("before advice end...");
 	}
 
-	
 }

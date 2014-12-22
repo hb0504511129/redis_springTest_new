@@ -1,4 +1,4 @@
-package com.hb.redis.test;
+package com.hb.redis.mainTest;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -10,20 +10,21 @@ import redis.clients.jedis.Pipeline;
  * <pre>
  *   链接：http://blog.csdn.net/chenxiaodan_danny/article/details/41514065
  * 	参考自：
-		http://www.blogjava.net/masfay/archive/2012/07/03/382080.html
-		http://blog.csdn.net/freebird_lb/article/details/7778919
-		http://redis.io/topics/pipelining 官方文档
-		redis pipeline 原理
-		1. 基于response-request响应，客户端发送请求-redis服务器返回数据为一个RTT时间，若有多个请求，需要等待前一个请求返回数据完毕，redis服务器才会处理下一个请求
-		2.使用redis pipeline 可以使得，多个请求一起发送，redis服务器需要返回的数据存储在内存中，全部处理完毕后，一次性传输回所有数据，这样就只有一个RTT时间，(just one time for several commands)
-	
-		redis pipeline实现，客户端为基于java 的Jedis
-		1.new Jedis(?,?)，建立jedis连接
-		2.jedis.pipelined()，创建jedis pipeline
-		2.发起count个commands
-		3.pipeline.sync()，pipeline一次性获取所有数据
-		4.jedis.disconnect ，关闭jedis
+ * 		http://www.blogjava.net/masfay/archive/2012/07/03/382080.html
+ * 		http://blog.csdn.net/freebird_lb/article/details/7778919
+ * 		http://redis.io/topics/pipelining 官方文档
+ * 		redis pipeline 原理
+ * 		1. 基于response-request响应，客户端发送请求-redis服务器返回数据为一个RTT时间，若有多个请求，需要等待前一个请求返回数据完毕，redis服务器才会处理下一个请求
+ * 		2.使用redis pipeline 可以使得，多个请求一起发送，redis服务器需要返回的数据存储在内存中，全部处理完毕后，一次性传输回所有数据，这样就只有一个RTT时间，(just one time for several commands)
+ * 	
+ * 		redis pipeline实现，客户端为基于java 的Jedis
+ * 		1.new Jedis(?,?)，建立jedis连接
+ * 		2.jedis.pipelined()，创建jedis pipeline
+ * 		2.发起count个commands
+ * 		3.pipeline.sync()，pipeline一次性获取所有数据
+ * 		4.jedis.disconnect ，关闭jedis
  * </pre>
+ * 
  * @author 338342
  *
  */
@@ -41,12 +42,9 @@ public class PiplineTest {
 		usePipeline(count);
 		end = System.currentTimeMillis();
 		System.out.println("usePipeline: " + (end - start) + "ms");
-		
+
 		/*
-		 * 运行结果为：
-		 * 运行结果：
-		 *		withoutPipeline: 6785ms
-		 *		usePipeline: 641ms
+		 * 运行结果为： 运行结果： withoutPipeline: 6785ms usePipeline: 641ms
 		 */
 	}
 
@@ -60,7 +58,7 @@ public class PiplineTest {
 				jedis.incr("testKey1");
 			}
 			// Ask the server to silently close the connection.
-			 jedis.quit();
+			jedis.quit();
 		} catch (Exception e) {
 			logger.error(e);
 		} finally {

@@ -11,10 +11,9 @@ import javax.persistence.Table;
 
 /**
  * SpringMVC+Hibernate +MySql+ EasyUI ---CRUD
- * @author 宗潇帅
- * 类名称：Userinfo 
- * @date 2014-11-15 下午1:37:47 
- * 备注：
+ * 
+ * @author 宗潇帅 类名称：Userinfo
+ * @date 2014-11-15 下午1:37:47 备注：
  */
 @SuppressWarnings("serial")
 @Entity
@@ -23,12 +22,12 @@ public class Userinfo implements java.io.Serializable {
 
 	// Fields
 
-	private Integer id; //主键
-	private String name;//名字
-	private Integer age;//年龄
-	private Date birthday;//生日
-	private String address;//地址
-	private String password;//密码
+	private Integer id; // 主键
+	private String name;// 名字
+	private Integer age;// 年龄
+	private Date birthday;// 生日
+	private String address;// 地址
+	private String password;// 密码
 
 	// Constructors
 
@@ -37,7 +36,6 @@ public class Userinfo implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	
 
 	// Property accessors
 	@Id
@@ -93,8 +91,6 @@ public class Userinfo implements java.io.Serializable {
 	public String getAddress() {
 		return this.address;
 	}
-
-
 
 	public void setAddress(String address) {
 		this.address = address;
