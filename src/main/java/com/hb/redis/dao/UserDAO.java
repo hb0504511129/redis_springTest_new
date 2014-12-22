@@ -1,5 +1,7 @@
 package com.hb.redis.dao;
 
+import java.util.List;
+
 import com.hb.redis.model.User;
 
 
@@ -12,6 +14,16 @@ public interface UserDAO {
      * @return
      */
     public int insertUser(User user);
+    
+    public int updateUser(User user);
+    
+    public int deleteUser(String id);
+    
+    public int queryUserById(String id);
+    
+    public List<User> queryAllUser();
+    
+    
      
      
 }

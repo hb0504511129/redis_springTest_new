@@ -15,15 +15,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.hb.redis.model.Userinfo;
+import com.hb.redis.model.User;
 import com.hb.redis.service.user.UserService;
 import com.hb.redis.util.commonUtil.StringUtil;
 
 /**
- * SpringMVC+Hibernate +MySql+ EasyUI ---CRUD
- * 
- * @author 宗潇帅 类名称：UserController
- * @date 2014-11-15 下午4:05:32 备注：
+ * 控制器
  */
 @Controller
 @RequestMapping(value = "/user")
