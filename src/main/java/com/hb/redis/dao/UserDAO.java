@@ -3,9 +3,9 @@ package com.hb.redis.dao;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
-import org.buzheng.mybatis.pageable.Page;
-import org.buzheng.mybatis.pageable.Pageable;
 
+import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
+import com.github.miemiedev.mybatis.paginator.domain.PageList;
 import com.hb.redis.model.User;
 import com.hb.redis.model.UserPage;
 
@@ -42,8 +42,8 @@ public interface UserDAO {
 	public Integer getCount(UserPage page);
 	
 	
-	public Page<User> findPage(Pageable pageRequest);
+	public PageList<User> findPage(PageBounds pageRequest);
 	
-	public Page<User> findPageByFirstName(@Param("name") String name, Pageable pageRequest);
+	public PageList<User> findPageByFirstName(@Param("name") String name, PageBounds pageRequest);
 
 }

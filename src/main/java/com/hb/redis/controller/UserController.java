@@ -53,8 +53,8 @@ public class UserController {
 	 * @throws Exception
 	 */
 	@RequestMapping(value = "/list")
-//	public String list(HttpServletRequest request, HttpServletResponse response)
-//			throws Exception {
+	public String list(HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
 //		int start = ServletRequestUtils.getIntParameter(request, "page", 1) - 1;
 //		int size = ServletRequestUtils.getIntParameter(request, "rows", 0);
 //		String name = ServletRequestUtils.getStringParameter(request, "name",
@@ -84,8 +84,18 @@ public class UserController {
 //		s = URLEncoder.encode(s, "UTF-8");
 //
 //		StringUtil.writeToWeb(result, "html", response);
-//		return null;
-//	}
+		
+//		int page = 1; //页号
+//		int pageSize = 20; //每页数据条数
+//		String sortString = "age.asc,gender.desc";//如果你想排序的话逗号分隔可以排序多列
+//		PageBounds pageBounds = new PageBounds(page, pageSize , Order.formString(sortString));
+//		List list = findByCity("BeiJing",pageBounds);
+//		 
+//		//获得结果集条总数
+//		PageList pageList = (PageList)list;
+//		System.out.println("totalCount: " + pageList.getPaginator().getTotalCount());
+		return null;
+	}
 
 	/**
 	 * gotoAdd --page
