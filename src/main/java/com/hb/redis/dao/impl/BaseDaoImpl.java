@@ -9,7 +9,10 @@ import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.type.TypeException;
+import org.mybatis.spring.SqlSessionFactoryBean;
+import org.mybatis.spring.SqlSessionUtils;
 
+import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
 import com.hb.redis.dao.BaseDao;
 
 
@@ -23,12 +26,14 @@ public class BaseDaoImpl implements BaseDao{
 	
 //	@Autowired
 	@Resource(name="sqlSessionFactory")
-	private SqlSessionFactory sqlSessionFactory;
+	private SqlSessionFactoryBean sqlSessionFactoryBean;
 
 	@Override
 	public SqlSession getSqlSession() throws TypeException,SQLException,Exception {
-		// TODO Auto-generated method stub
-		return sqlSessionFactory.openSession();
+		SqlSessionFactory sessionFactory = sqlSessionFactoryBean.getObject();
+		 SqlSession session = SqlSessionUtils.getSqlSession(sessionFactory);
+//		return sessionFactory.openSession();
+		 return session;
 	}
 
 	@Override
@@ -102,5 +107,40 @@ public class BaseDaoImpl implements BaseDao{
 			session.close();
 		}
 	}
+	
+	/**
+     * 查询分页数据
+     * 
+     * @param mapperClass
+     * @param sqlId
+     * @param sqlParameter
+     * @param pageIndex
+     * @param pageSize
+     * @return
+     * @throws Exception
+     */
+	public List<?> getPageList(Class<?> mapperClass, String sqlId,
+            Object sqlParameter, int pageIndex, int pageSize) throws Exception {
+    	SqlSession session = null;
+        try {
+            session = getSqlSession();
+            
+            if (pageIndex <= 0) {
+                pageIndex = 1;
+            }
+            if (pageSize <= 0) {
+                pageSize = 10;
+            }
+            PageBounds pageBounds = new PageBounds(pageIndex, pageSize);
+            return session.selectList(mapperClass.getName() + "." + sqlId,
+                    sqlParameter, pageBounds);
+        } finally {
+        	if(session != null)
+        	{
+        		session.close();
+        	}
+        }
+
+    }
 	
 }

@@ -86,5 +86,20 @@ public interface BaseDao {
 	 * @throws Exception
 	 */
 	public void update(String s, Object param) throws TypeException,SQLException,Exception;
+	
+	
+	/**
+     * 查询分页数据
+     * 
+     * @param mapperClass
+     * @param sqlId
+     * @param sqlParameter
+     * @param pageIndex
+     * @param pageSize
+     * @return
+     * @throws Exception
+     */
+	public List<?> getPageList(Class<?> mapperClass, String sqlId,
+            Object sqlParameter, int pageIndex, int pageSize) throws Exception ;
 }
 

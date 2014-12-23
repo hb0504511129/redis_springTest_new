@@ -13,6 +13,9 @@ public class User implements java.io.Serializable {
 	private String address;// 地址
 	private String password;// 密码
 	
+	private Date createTime;//创建时间
+	private Date modifyTime;//修改时间
+	
 	private static final String OBJECT_KEY = "USER";
 
 	public User() {
@@ -82,6 +85,25 @@ public class User implements java.io.Serializable {
 		this.password = password;
 	}
 	
+	public Date getCreateTime() {
+		 if (createTime == null) {
+			 createTime =  new Date();
+		}
+		return createTime;
+	}
+
+	public Date getModifyTime() {
+		if(modifyTime == null)
+		{
+			modifyTime = createTime;
+		}
+		return modifyTime;
+	}
+
+	public void setModifyTime(Date modifyTime) {
+		this.modifyTime = modifyTime;
+	}
+
 	public String toString() {
 		return "User [id=" + id + ", name=" + name + "]";
 	}

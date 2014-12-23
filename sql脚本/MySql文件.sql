@@ -27,6 +27,8 @@ CREATE TABLE `userinfo` (
   `birthday` datetime DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT '888888',
+  createTime` datetime DEFAULT NULL,
+  modifyTime` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
  

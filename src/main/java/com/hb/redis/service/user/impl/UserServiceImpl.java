@@ -8,36 +8,29 @@ import org.springframework.stereotype.Service;
 import com.hb.redis.dao.UserDAO;
 import com.hb.redis.dao.UserDAOCode;
 import com.hb.redis.model.User;
+import com.hb.redis.model.UserPage;
 import com.hb.redis.service.user.UserService;
- 
- 
- 
+
 @Service
-public class UserServiceImpl implements UserService{
- 
-    @Autowired
-    private UserDAOCode userDAOCode;
-    
-    @Autowired
-    private UserDAO userDAO;
-     
-    @Override
-    public int insertUser(User user) {
-        // TODO Auto-generated method stub
-        try {
-        	return userDAO.insertUser(user);
-//			return userDAOCide.insertUser(user);
+public class UserServiceImpl implements UserService {
+
+	@Autowired
+	private UserDAOCode userDAOCode;
+
+	@Autowired
+	private UserDAO userDAO;
+
+	@Override
+	public int insertUser(User user) {
+		// TODO Auto-generated method stub
+		try {
+			return userDAO.insertUser(user);
+			// return userDAOCide.insertUser(user);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			return 0;
 		}
-        
-    }
 
-	@Override
-	public String list(String name, int start, int size, String order) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override
@@ -63,5 +56,14 @@ public class UserServiceImpl implements UserService{
 		return userDAO.queryAllUser();
 	}
 
- 
+	@Override
+	public List<User> findByPage(UserPage page) {
+		return userDAO.findByPage(page);
+	}
+
+	@Override
+	public Integer getCount(UserPage page) {
+		return userDAO.getCount(page);
+	}
+
 }

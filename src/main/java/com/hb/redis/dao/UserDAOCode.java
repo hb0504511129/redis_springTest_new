@@ -4,9 +4,11 @@ import java.sql.SQLException;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.type.TypeException;
+import org.springframework.stereotype.Component;
 
 import com.hb.redis.dao.impl.BaseDaoImpl;
 
+@Component
 public class UserDAOCode extends BaseDaoImpl{
 
 	public int insertUser(Object param) throws TypeException, SQLException, Exception {
