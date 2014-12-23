@@ -53,39 +53,39 @@ public class UserController {
 	 * @throws Exception
 	 */
 	@RequestMapping(value = "/list")
-	public String list(HttpServletRequest request, HttpServletResponse response)
-			throws Exception {
-		int start = ServletRequestUtils.getIntParameter(request, "page", 1) - 1;
-		int size = ServletRequestUtils.getIntParameter(request, "rows", 0);
-		String name = ServletRequestUtils.getStringParameter(request, "name",
-				"");
-		String order = StringUtil.getOrderString(request); // 取得排序参数
-
-		String result = null;
-		try {
-			result = userService.list(name, start, size, order);
-		} catch (Exception e) {
-			if (log.isErrorEnabled()) {
-				log.error("查询列表失败", e);
-			}
-			result = "";
-		}
-		String sortName = ServletRequestUtils.getStringParameter(request,
-				"sort", "");
-		String sortOrder = ServletRequestUtils.getStringParameter(request,
-				"order", "");
-		Map<String, Object> searchMap = new HashMap<String, Object>();
-		searchMap.put("pageNumber", start + 1);
-		searchMap.put("rows", size);
-		searchMap.put("sortName", sortName);
-		searchMap.put("sortOrder", sortOrder);
-		Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
-		String s = gson.toJson(searchMap);
-		s = URLEncoder.encode(s, "UTF-8");
-
-		StringUtil.writeToWeb(result, "html", response);
-		return null;
-	}
+//	public String list(HttpServletRequest request, HttpServletResponse response)
+//			throws Exception {
+//		int start = ServletRequestUtils.getIntParameter(request, "page", 1) - 1;
+//		int size = ServletRequestUtils.getIntParameter(request, "rows", 0);
+//		String name = ServletRequestUtils.getStringParameter(request, "name",
+//				"");
+//		String order = StringUtil.getOrderString(request); // 取得排序参数
+//
+//		String result = null;
+//		try {
+//			result = userService.list(name, start, size, order);
+//		} catch (Exception e) {
+//			if (log.isErrorEnabled()) {
+//				log.error("查询列表失败", e);
+//			}
+//			result = "";
+//		}
+//		String sortName = ServletRequestUtils.getStringParameter(request,
+//				"sort", "");
+//		String sortOrder = ServletRequestUtils.getStringParameter(request,
+//				"order", "");
+//		Map<String, Object> searchMap = new HashMap<String, Object>();
+//		searchMap.put("pageNumber", start + 1);
+//		searchMap.put("rows", size);
+//		searchMap.put("sortName", sortName);
+//		searchMap.put("sortOrder", sortOrder);
+//		Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
+//		String s = gson.toJson(searchMap);
+//		s = URLEncoder.encode(s, "UTF-8");
+//
+//		StringUtil.writeToWeb(result, "html", response);
+//		return null;
+//	}
 
 	/**
 	 * gotoAdd --page
@@ -95,11 +95,11 @@ public class UserController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping(value = "/gotoAdd")
-	public String gotoAdd(HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
-		return "views/user/add";
-	}
+//	@RequestMapping(value = "/gotoAdd")
+//	public String gotoAdd(HttpServletRequest request,
+//			HttpServletResponse response) throws Exception {
+//		return "views/user/add";
+//	}
 
 //	/**
 //	 * add --method
